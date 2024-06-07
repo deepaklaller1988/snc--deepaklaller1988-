@@ -1,19 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { getCurrentTime } from './GetCurrentTime';
-
-const DateTime = () => {
-  const [currentTime, setCurrentTime] = useState('');
-
-
-  useEffect(() => {
-    setCurrentTime(getCurrentTime());
-    console.log(getCurrentTime())
-    const intervalId = setInterval(() => {
-      setCurrentTime(getCurrentTime());
-    }, 1000);
-
-    return () => clearInterval(intervalId);
-  }, []);
+const DateTime = ({ currentTime }: { currentTime: string }) => {
 
   return (
     <div className="mt-4 flex items-center justify-center">
